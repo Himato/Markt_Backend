@@ -1,0 +1,65 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20200331105855_Initial.cs" />
+    <Compile Remove="Migrations\20200331105855_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200331114743_ExtendingIdentity.cs" />
+    <Compile Remove="Migrations\20200331114743_ExtendingIdentity.Designer.cs" />
+    <Compile Remove="Migrations\20200331120204_ExtendingIdentity.cs" />
+    <Compile Remove="Migrations\20200331120204_ExtendingIdentity.Designer.cs" />
+    <Compile Remove="Migrations\20200401043011_SeedingRolesData.cs" />
+    <Compile Remove="Migrations\20200401043011_SeedingRolesData.Designer.cs" />
+    <Compile Remove="Migrations\20200401045730_ExtendingIdentity2.cs" />
+    <Compile Remove="Migrations\20200401045730_ExtendingIdentity2.Designer.cs" />
+    <Compile Remove="Migrations\20200401075926_AddingCategoryTables.cs" />
+    <Compile Remove="Migrations\20200401075926_AddingCategoryTables.Designer.cs" />
+    <Compile Remove="Migrations\20200401080210_AddingCategoryTables.cs" />
+    <Compile Remove="Migrations\20200401080210_AddingCategoryTables.Designer.cs" />
+    <Compile Remove="Migrations\20200401081012_AddingCategoryTables.cs" />
+    <Compile Remove="Migrations\20200401081012_AddingCategoryTables.Designer.cs" />
+    <Compile Remove="Migrations\20200401082736_AddingCategoryTables.cs" />
+    <Compile Remove="Migrations\20200401082736_AddingCategoryTables.Designer.cs" />
+    <Compile Remove="Migrations\20200402102952_AddingItemTable.cs" />
+    <Compile Remove="Migrations\20200402102952_AddingItemTable.Designer.cs" />
+    <Compile Remove="Migrations\20200402103102_AddingItemTable.cs" />
+    <Compile Remove="Migrations\20200402103102_AddingItemTable.Designer.cs" />
+    <Compile Remove="Migrations\20200402103232_AddingItemTable.cs" />
+    <Compile Remove="Migrations\20200402103232_AddingItemTable.Designer.cs" />
+    <Compile Remove="Migrations\20200402141629_AddingProductTable.cs" />
+    <Compile Remove="Migrations\20200402141629_AddingProductTable.Designer.cs" />
+    <Compile Remove="Migrations\20200402154459_InitialMigration.cs" />
+    <Compile Remove="Migrations\20200402154459_InitialMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200402154615_InitialMigration.cs" />
+    <Compile Remove="Migrations\20200402154615_InitialMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200403055755_AddingPurchasingTable.cs" />
+    <Compile Remove="Migrations\20200403055755_AddingPurchasingTable.Designer.cs" />
+    <Compile Remove="Migrations\20200403064450_UpdatingPurchaseAndProductTables.cs" />
+    <Compile Remove="Migrations\20200403064450_UpdatingPurchaseAndProductTables.Designer.cs" />
+    <Compile Remove="Migrations\20200405100617_AddingBrandTable.cs" />
+    <Compile Remove="Migrations\20200405100617_AddingBrandTable.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.1" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="2.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.1.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="5.3.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="5.3.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="5.3.1" />
+  </ItemGroup>
+
+</Project>
