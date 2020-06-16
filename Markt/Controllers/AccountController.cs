@@ -79,7 +79,8 @@ namespace Markt.Controllers
         {
             return await Do(async () =>
             {
-                await _userService.ForgetPassword(forgetPasswordDto.Email);
+                //await _userService.ForgetPassword(forgetPasswordDto.Email);
+                throw new ArgumentException("This feature is not supported due to the insecure domain");
             });
         }
         

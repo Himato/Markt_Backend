@@ -170,7 +170,7 @@ namespace Markt
                 builder =>
                 {
                     builder.AllowAnyMethod().AllowAnyHeader()
-                        .WithOrigins("http://localhost:4200")
+                        .WithOrigins("http://markt.mesawer.com")
                         .AllowCredentials();
                 }));
         }

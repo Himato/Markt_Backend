@@ -41,7 +41,7 @@ namespace Markt
             }
             else
             {
-                app.UseHsts();
+                //app.UseHsts();
             }
 
             app.UseStaticFiles();
@@ -56,7 +56,7 @@ namespace Markt
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Markt V1");
             });
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseAuthentication();
             app.UseResponseCaching();
             app.UseCors("CorsPolicy");
