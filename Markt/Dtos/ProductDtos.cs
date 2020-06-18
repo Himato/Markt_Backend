@@ -71,6 +71,8 @@ namespace Markt.Dtos
 
         public string SellerName { get; set; }
 
+        public string SellerUserName { get; set; }
+
         public string Description { get; set; }
         
         public string Specification { get; set; }
@@ -102,6 +104,7 @@ namespace Markt.Dtos
                 Id = product.Id,
                 Name = product.Name,
                 SellerName = product.Seller.GetName(),
+                SellerUserName = product.Seller.UserName,
                 Description = product.Description,
                 Specification = product.Specification,
                 ReturnInfo = product.ReturnInfo,
