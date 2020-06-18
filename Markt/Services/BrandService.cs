@@ -13,7 +13,7 @@ namespace Markt.Services
     {
         Task<string[]> GetBrandIds(string[] brands);
 
-        Task<IEnumerable<Brand>> GetAll();
+        Task<IEnumerable<Brand>> GetAll(string subcategoryUri = null);
 
         Task<IEnumerable<AdminBrandDto>> GetAdminBrands();
 
@@ -44,9 +44,25 @@ namespace Markt.Services
                 .Select(b => b.Id.ToString()).ToArrayAsync();
         }
 
-        public async Task<IEnumerable<Brand>> GetAll()
+        public async Task<IEnumerable<Brand>> GetAll(string subcategoryUri = null)
         {
-            return await _context.Brands.ToListAsync();
+            if (subcategoryUri == null)
+            {
+                return await _context.Brands.ToListAsync();
+            }
+
+            var subcategory = await _context.Subcategories.FirstOrDefaultAsync(s => s.Uri.Equals(subcategoryUri));
+
+            if (subcategory == null)
+            {
+                return await _context.Brands.ToListAsync();
+            }
+
+            return await _context.Products
+                .Where(p => p.SubcategoryId == subcategory.Id)
+                .Include(p => p.Brand)
+                .Select(p => p.Brand)
+                .ToListAsync();
         }
 
         public async Task<IEnumerable<AdminBrandDto>> GetAdminBrands()
