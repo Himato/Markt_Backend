@@ -371,9 +371,12 @@ namespace Markt.Services
 
             await Do(() => _context.Entry(product).State = EntityState.Modified);
 
-            foreach (var image in productDto.Images)
+            if (productDto.Images != null)
             {
-                await _imageService.UploadImage(product.Id, image);
+                foreach (var image in productDto.Images)
+                {
+                    await _imageService.UploadImage(product.Id, image);
+                }
             }
 
             return product.Id;
