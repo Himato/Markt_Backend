@@ -75,7 +75,7 @@ namespace Markt.Services
                 pageOptions = new PagingOptions
                 {
                     Offset = 0,
-                    Limit = 25
+                    Limit = 24
                 };
             }
 
@@ -84,9 +84,9 @@ namespace Markt.Services
             return searchOptions.Apply(query)
                 .Include(p => p.Images)
                 .Include(p => p.Seller)
+                .OrderByDescending(p => p.DateTime)
                 .Skip(pageOptions.Offset ?? default)
-                .Take(pageOptions.Limit ?? 25)
-                .OrderByDescending(p => p.DateTime).AsEnumerable()
+                .Take(pageOptions.Limit ?? 24).AsEnumerable()
                 .Select(ProductResultDto.Create);
         }
 
@@ -110,7 +110,7 @@ namespace Markt.Services
                 pageOptions = new PagingOptions
                 {
                     Offset = 0,
-                    Limit = 25
+                    Limit = 24
                 };
             }
 
@@ -129,9 +129,9 @@ namespace Markt.Services
             return searchOptions.Apply(query ?? products)
                 .Include(p => p.Images)
                 .Include(p => p.Seller)
+                .OrderByDescending(p => p.DateTime)
                 .Skip(pageOptions.Offset ?? default)
-                .Take(pageOptions.Limit ?? 25)
-                .OrderByDescending(p => p.DateTime).AsEnumerable()
+                .Take(pageOptions.Limit ?? 24).AsEnumerable()
                 .Select(ProductResultDto.Create);
         }
 
