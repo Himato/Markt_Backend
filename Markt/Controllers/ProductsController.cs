@@ -101,9 +101,9 @@ namespace Markt.Controllers
         [HttpGet]
         [AllowAnonymous]
         [Route("Brands")]
-        public async Task<IActionResult> GetAllBrands()
+        public async Task<IActionResult> GetAllBrands(string subcategoryUri = null)
         {
-            return await Do(async () => await _brandService.GetAll());
+            return await Do(async () => await _brandService.GetAll(subcategoryUri));
         }
 
         [HttpPut]

@@ -62,6 +62,7 @@ namespace Markt.Services
                 .Where(p => p.SubcategoryId == subcategory.Id)
                 .Include(p => p.Brand)
                 .Select(p => p.Brand)
+                .Distinct()
                 .ToListAsync();
         }
 
