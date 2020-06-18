@@ -48,14 +48,14 @@ namespace Markt.Services
         {
             if (subcategoryUri == null)
             {
-                return await _context.Brands.ToListAsync();
+                return await _context.Brands.OrderBy(b => b.Name).ToListAsync();
             }
 
             var subcategory = await _context.Subcategories.FirstOrDefaultAsync(s => s.Uri.Equals(subcategoryUri));
 
             if (subcategory == null)
             {
-                return await _context.Brands.ToListAsync();
+                return await _context.Brands.OrderBy(b => b.Name).ToListAsync();
             }
 
             return await _context.Products
@@ -63,6 +63,7 @@ namespace Markt.Services
                 .Include(p => p.Brand)
                 .Select(p => p.Brand)
                 .Distinct()
+                .OrderBy(b => b.Name)
                 .ToListAsync();
         }
 
