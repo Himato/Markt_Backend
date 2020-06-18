@@ -85,7 +85,8 @@ namespace Markt.Services
                 .Include(p => p.Images)
                 .Include(p => p.Seller)
                 .Skip(pageOptions.Offset ?? default)
-                .Take(pageOptions.Limit ?? 25).AsEnumerable()
+                .Take(pageOptions.Limit ?? 25)
+                .OrderByDescending(p => p.DateTime).AsEnumerable()
                 .Select(ProductResultDto.Create);
         }
 
@@ -129,7 +130,8 @@ namespace Markt.Services
                 .Include(p => p.Images)
                 .Include(p => p.Seller)
                 .Skip(pageOptions.Offset ?? default)
-                .Take(pageOptions.Limit ?? 25).AsEnumerable()
+                .Take(pageOptions.Limit ?? 25)
+                .OrderByDescending(p => p.DateTime).AsEnumerable()
                 .Select(ProductResultDto.Create);
         }
 
