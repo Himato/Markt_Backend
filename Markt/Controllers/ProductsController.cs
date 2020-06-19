@@ -119,7 +119,6 @@ namespace Markt.Controllers
         }
 
         [HttpPost]
-        [Authorize]
         [Route("Review")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]

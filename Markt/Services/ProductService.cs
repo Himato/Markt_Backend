@@ -238,6 +238,11 @@ namespace Markt.Services
 
         public async Task<int> AddReview(string userId, int productId, int rate)
         {
+            if (userId == null)
+            {
+                throw new ArgumentException("You haven't purchase this product yet");
+            }
+
             var review =
                 await _context.Reviews.FirstOrDefaultAsync(r =>
                     r.UserId.Equals(userId) && r.ProductId == productId);
