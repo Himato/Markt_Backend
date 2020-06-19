@@ -64,11 +64,12 @@ namespace Markt
     {
         public static string GetUserId(this IIdentity identity)
         {
-            return ((ClaimsIdentity)identity).Claims.First(c => c.Type.Equals(nameof(ClaimTypes.NameIdentifier).ToCamelCase())).Value;
+            return ((ClaimsIdentity)identity)?.Claims.FirstOrDefault(c => c.Type.Equals(nameof(ClaimTypes.NameIdentifier).ToCamelCase()))?.Value;
         }
+
         public static string GetUsername(this IIdentity identity)
         {
-            return ((ClaimsIdentity)identity).Claims.First(c => c.Type.Equals(nameof(ClaimTypes.Name).ToCamelCase())).Value;
+            return ((ClaimsIdentity)identity)?.Claims.FirstOrDefault(c => c.Type.Equals(nameof(ClaimTypes.Name).ToCamelCase()))?.Value;
         }
     }
 
