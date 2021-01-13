@@ -89,9 +89,9 @@ namespace Markt
         public static void ConfigureMvcApi(this IServiceCollection services, CompatibilityVersion version)
         {
             services.AddMvc()
-                .AddJsonOptions(options =>
+                .AddNewtonsoftJson(options =>
                 {
-                    options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                    options.SerializerSettings.ContractResolver      = new CamelCasePropertyNamesContractResolver();
                     options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
                 })
                 .SetCompatibilityVersion(version);
@@ -165,14 +165,21 @@ namespace Markt
                 });
         }
 
-        public static void AddCors(this IServiceCollection services)
+        public static void AddCors(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddCors(options => options.AddPolicy("CorsPolicy",
                 builder =>
                 {
-                    builder.AllowAnyMethod().AllowAnyHeader()
-                        .WithOrigins("http://markt.mesawer.com")
-                        .AllowCredentials();
+                    var origins = configuration.GetSection("Origins").AsEnumerable();
+
+                    foreach (var (_, value) in origins)
+                    {
+                        if (string.IsNullOrEmpty(value)) continue;
+
+                        builder.AllowAnyMethod().AllowAnyHeader()
+                            .WithOrigins(value)
+                            .AllowCredentials();
+                    }
                 }));
         }
     }
